@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Love!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad390);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            animation: glow 1.5s infinite alternate;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            animation: fadeIn 2s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #ffd1dc, 0 0 20px #ff9a9e;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #ffd1dc, 0 0 30px #ff9a9e;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .quote {
+            font-style: italic;
+            color: #fff8e1;
+            padding: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .balloons {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 60px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff9a9e 0%, #ff758c 100%);
+            animation: float 6s ease-in-out infinite;
+            animation-delay: calc(-1s * var(--i));
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-300px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, My Love! 🎂🎉</h1>
+
+        <p class="quote">"You're the sparkle in my life, and today, we celebrate your magic!" ✨</p>
+        <p class="quote">"Every day with you feels like a party. Let's make this birthday unforgettable!" 🎈</p>
+        <p class="quote">"Thank you for being my everything. Happy Birthday, love!" 💖</p>
+
+        <div class="balloons">
+            <div class="balloon" style="--i:0;"></div>
+            <div class="balloon" style="--i:1; left: 70px;"></div>
+            <div class="balloon" style="--i:2; left: 140px;"></div>
+            <div class="balloon" style="--i:3; left: 210px;"></div>
+            <div class="balloon" style="--i:4; left: 280px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Script to create a dynamic floating effect
+        const quotes = document.querySelectorAll('.quote');
+        quotes.forEach((quote, index) => {
+            setTimeout(() => {
+                quote.style.animationDelay = `${index}s`;
+            }, 500 * index);
+        });
+    </script>
+</body>
+</html>
